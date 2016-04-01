@@ -1,4 +1,4 @@
-package net.guymage.model.map;
+package net.guymage.model.map.observable;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -7,17 +7,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import net.guymage.model.ImageEntity;
 import net.guymage.model.race.RaceEntity;
 
 /**
- * Entité représentant une défense
+ * Entité représentant un Bâtiment
  *
  * @author Guymage
  */
 @Entity
-@Table(name = "defense")
-public class DefenseEntity {
+@Table(name = "batiment")
+public class BatimentEntity {
 
 	@Id
 	private Long id;

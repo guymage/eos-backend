@@ -6,24 +6,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.guymage.dao.map.ChantierDAO;
-import net.guymage.model.map.observable.ChantierEntity;
+import net.guymage.dao.map.PnjDAO;
+import net.guymage.model.map.observable.PnjEntity;
 
 @RestController
-@RequestMapping("/chantier")
-public class ChantierController {
+@RequestMapping("/pnj")
+public class PnjController {
 
 	@Autowired
-	private ChantierDAO chantierDAO;
+	private PnjDAO pnjDAO;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public Iterable<ChantierEntity> findAll() {
-		return chantierDAO.findAll();
+	public Iterable<PnjEntity> findAll() {
+		return pnjDAO.findAll();
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "{id}")
-	public ChantierEntity findById(@PathVariable Long id) {
-		return chantierDAO.findById(id);
+	public PnjEntity findById(@PathVariable Long id) {
+		return pnjDAO.findById(id);
 	}
 
 }

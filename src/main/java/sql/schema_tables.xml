@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
+<!-- Active URL: file:///C:/Users/guymage/Softwares/wwwsqldesigner-2.6/index.html -->
+<sql>
+<datatypes db="mysql">
+	<group label="Numeric" color="rgb(238,238,170)">
+		<type label="Integer" length="0" sql="INTEGER" re="INT" quote=""/>
+		<type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+		<type label="Single precision" length="0" sql="FLOAT" quote=""/>
+		<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+	</group>
+
+	<group label="Character" color="rgb(255,200,200)">
+		<type label="Char" length="1" sql="CHAR" quote="'"/>
+		<type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+		<type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+		<type label="Binary" length="1" sql="BINARY" quote="'"/>
+		<type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+		<type label="BLOB" length="0" sql="BLAOB" re="BLOB" quote="'"/>
+	</group>
+
+	<group label="Date &amp; Time" color="rgb(200,255,200)">
+		<type label="Date" length="0" sql="DATE" quote="'"/>
+		<type label="Time" length="0" sql="TIME" quote="'"/>
+		<type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+		<type label="Year" length="0" sql="YEAR" quote=""/>
+		<type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+	</group>
+	
+	<group label="Miscellaneous" color="rgb(200,200,255)">
+		<type label="ENUM" length="1" sql="ENUM" quote=""/>
+		<type label="SET" length="1" sql="SET" quote=""/>
+	</group>
+</datatypes><table x="629" y="179" name="joueur">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="nom" null="0" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+</row>
+<row name="passwd" null="1" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+<default>NULL</default></row>
+<row name="idRace" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="race" row="id" />
+</row>
+<row name="isActive" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="lastConnection" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="mail" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="invisible" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>0</default></row>
+<row name="invisibleValidite" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="754" y="482" name="batiment">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="idRace" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="race" row="id" />
+</row>
+<row name="idImage" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="image" row="id" />
+</row>
+<row name="hp" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="235" y="553" name="observation">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="idRoyaume" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="race" row="id" />
+</row>
+<row name="idObservateur" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="joueur" row="id" />
+</row>
+<row name="dateObservation" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="idCase" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="t_case" row="id" />
+</row>
+<row name="idTexture" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="texture" row="id" />
+</row>
+<row name="idRace" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="race" row="id" />
+</row>
+<row name="idTypeTerrain" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="idBatiment" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="batiment" row="id" />
+</row>
+<row name="idFlag" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="flag" row="id" />
+</row>
+<row name="idPnj" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="pnj" row="id" />
+</row>
+<row name="idArmeSiege" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="armeSiege" row="id" />
+</row>
+<row name="idDefense" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="defense" row="id" />
+</row>
+<row name="obsolete" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>0</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="46" y="579" name="texture">
+<row name="id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="css" null="0" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+</row>
+<row name="path" null="0" autoincrement="0">
+<datatype>VARCHAR(250)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>liste des textures</comment>
+</table>
+<table x="1116" y="15" name="t_case">
+<row name="id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="x" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="y" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="lastIdRace" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>0</default><comment>Id de la race auquel appartient la case à la dernière maj</comment>
+</row>
+<row name="dateConquete" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="idNature" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>99</default><relation table="natureTerrain" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="213" y="380" name="joueurObs">
+<row name="idPersonnage" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="t_personnage" row="id" />
+</row>
+<row name="idObservation" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="observation" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>idObservation</part>
+<part>idPersonnage</part>
+</key>
+<comment>Table définissant les joueurs sur une case</comment>
+</table>
+<table x="1092" y="399" name="race">
+<row name="id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="nom" null="0" autoincrement="0">
+<datatype>VARCHAR(25)</datatype>
+</row>
+<row name="descr" null="0" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+</row>
+<row name="capitaleX" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="capitaleY" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="colorR" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><comment>couleur - composante rouge (int)</comment>
+</row>
+<row name="colorG" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><comment>couleur - composante verte (int)</comment>
+</row>
+<row name="colorB" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><comment>couleur - composante bleue (int)</comment>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="492" y="43" name="classe">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="nom" null="0" autoincrement="0">
+<datatype>VARCHAR(25)</datatype>
+</row>
+<row name="path" null="0" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="49" y="723" name="pnj">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="nom" null="0" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+</row>
+<row name="image" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="761" y="639" name="flag">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="idRace" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="race" row="id" />
+</row>
+<row name="idImage" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="image" row="id" />
+</row>
+<row name="dateFin" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="type" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1456" y="124" name="favoris">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="idJoueur" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="joueur" row="id" />
+</row>
+<row name="idCase" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="t_case" row="id" />
+</row>
+<row name="nom" null="0" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>Raccourcis uniquement vers des cases observées.</comment>
+</table>
+<table x="1603" y="449" name="infoEntity">
+<row name="idEntite" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="idRoyaume" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="race" row="id" />
+</row>
+<row name="typeEntite" null="0" autoincrement="0">
+<datatype>VARCHAR(10)</datatype>
+</row>
+<row name="updatedBy" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="joueur" row="id" />
+</row>
+<row name="updated" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="comment" null="1" autoincrement="0">
+<datatype>VARCHAR(250)</datatype>
+<default>NULL</default></row>
+<row name="isRezor" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="isArchi" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="isTarget" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>0</default></row>
+<key type="PRIMARY" name="">
+<part>idEntite</part>
+<part>idRoyaume</part>
+<part>typeEntite</part>
+</key>
+<comment>Informations sur une entité observée</comment>
+</table>
+<table x="253" y="14" name="t_classeJoueur">
+<row name="idPersonnage" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="t_personnage" row="id" />
+</row>
+<row name="idClasse" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="classe" row="id" />
+</row>
+<row name="dateObservation" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>idPersonnage</part>
+<part>idClasse</part>
+</key>
+<comment>Liste des classes d'un joueur durant ses observations</comment>
+</table>
+<table x="1501" y="316" name="infoCase">
+<row name="idCase" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="t_case" row="id" />
+</row>
+<row name="idRoyaume" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="race" row="id" />
+</row>
+<row name="updatedBy" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="joueur" row="id" />
+</row>
+<row name="updated" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="comment" null="0" autoincrement="0">
+<datatype>VARCHAR(500)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>idRoyaume</part>
+<part>idCase</part>
+</key>
+</table>
+<table x="1718" y="208" name="log">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="idRoyaume" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="race" row="id" />
+</row>
+<row name="date" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<comment>Nom de l'action qui a créé le log</comment>
+</row>
+<row name="details" null="0" autoincrement="0">
+<datatype>VARCHAR(500)</datatype>
+</row>
+<row name="resume" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="niveau" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>0</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>Table des logs d'EOS</comment>
+</table>
+<table x="4" y="57" name="t_personnage">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="idJoueur" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="joueur" row="id" />
+</row>
+<row name="idRoyaume" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="race" row="id" />
+</row>
+<row name="updated" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="updatedBy" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="joueur" row="id" />
+</row>
+<row name="level" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="melee" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="distance" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="esquive" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="blocage" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="incantation" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="magieVie" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="magieElem" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="magieMort" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="isCache" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>0</default></row>
+<row name="dead" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>0</default></row>
+<row name="dateDeath" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1260" y="725" name="armeSiege">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="idType" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="typeArmeSiege" row="id" />
+</row>
+<row name="idRace" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="race" row="id" />
+</row>
+<row name="idImage" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="image" row="id" />
+</row>
+<row name="hp" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="nextShoot" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="shootBy" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="joueur" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>Armes de siège</comment>
+</table>
+<table x="1457" y="9" name="logCoord">
+<row name="idLog" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="log" row="id" />
+</row>
+<row name="idCase" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="t_case" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>idLog</part>
+<part>idCase</part>
+</key>
+<comment>Coordonnées associées aux logs</comment>
+</table>
+<table x="703" y="854" name="defense">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="idRace" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="race" row="id" />
+</row>
+<row name="idImage" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="image" row="id" />
+</row>
+<row name="hp" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>Défense</comment>
+</table>
+<table x="1060" y="901" name="image">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="nom" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="path" null="0" autoincrement="0">
+<datatype>VARCHAR(250)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>images des bâtiments du jeu</comment>
+</table>
+<table x="1423" y="587" name="imageDisplay">
+<row name="idRoyaume" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="race" row="id" />
+</row>
+<row name="nom" null="0" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+</row>
+<row name="date" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="description" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="finValidite" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="idJoueur" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="joueur" row="id" />
+</row>
+<row name="shared" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>0</default></row>
+<key type="PRIMARY" name="">
+<part>idRoyaume</part>
+<part>nom</part>
+</key>
+</table>
+<table x="1464" y="822" name="typeArmeSiege">
+<row name="id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="nom" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="tpsRecharge" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<comment>en minutes</comment>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1695" y="857" name="statistique">
+<row name="mesure" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="hits" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>mesure</part>
+</key>
+<comment>Statistiques sur l'utilisation des fonctionnalités du site</comment>
+</table>
+<table x="627" y="5" name="notification">
+<row name="idJoueur" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="joueur" row="id" />
+</row>
+<row name="type" null="0" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+</row>
+<row name="notified" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>0</default></row>
+<key type="PRIMARY" name="">
+<part>idJoueur</part>
+<part>type</part>
+</key>
+</table>
+<table x="384" y="283" name="habilitation">
+<row name="idJoueur" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="joueur" row="id" />
+</row>
+<row name="habilitation" null="0" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>'NULL'</default></row>
+<key type="PRIMARY" name="">
+<part>idJoueur</part>
+<part>habilitation</part>
+</key>
+</table>
+<table x="499" y="452" name="surveillance">
+<row name="idObservation" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="observation" row="id" />
+</row>
+<row name="idBatiment" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="batiment" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>idObservation</part>
+<part>idBatiment</part>
+</key>
+</table>
+<table x="1187" y="207" name="natureTerrain">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="nom" null="0" autoincrement="0">
+<datatype>VARCHAR(250)</datatype>
+</row>
+<row name="descr" null="0" autoincrement="0">
+<datatype>VARCHAR(250)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>nature d'une case</comment>
+</table>
+<table x="873" y="37" name="pointeur">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="idCaseSrc" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="t_case" row="id" />
+</row>
+<row name="idCaseDest" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="t_case" row="id" />
+</row>
+<row name="idRoyaume" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="race" row="id" />
+</row>
+<row name="commentaire" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+</sql>

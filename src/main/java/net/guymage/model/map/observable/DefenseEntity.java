@@ -1,4 +1,4 @@
-package net.guymage.model.map;
+package net.guymage.model.map.observable;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -7,17 +7,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import net.guymage.model.ImageEntity;
 import net.guymage.model.race.RaceEntity;
 
 /**
- * Entité représentant une ADS
+ * Entité représentant une défense
  *
  * @author Guymage
  */
 @Entity
-@Table(name = "armesiege")
-public class ArmeSiegeEntity {
+@Table(name = "defense")
+public class DefenseEntity {
 
 	@Id
 	private Long id;
@@ -31,10 +30,6 @@ public class ArmeSiegeEntity {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "idimage")
 	private ImageEntity image;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idtype")
-	private TypeADSEntity typeADS;
 
 	/*
 	 * Getters & setters
@@ -70,14 +65,6 @@ public class ArmeSiegeEntity {
 
 	public void setImage(ImageEntity image) {
 		this.image = image;
-	}
-
-	public TypeADSEntity getTypeADS() {
-		return typeADS;
-	}
-
-	public void setTypeADS(TypeADSEntity typeADS) {
-		this.typeADS = typeADS;
 	}
 
 }

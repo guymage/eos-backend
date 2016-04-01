@@ -16,14 +16,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import model.joueur.CodeHabilitation;
-import net.guymage.dao.joueur.JoueurDAO;
+import net.guymage.dao.joueur.JoueurRepository;
 import net.guymage.model.joueur.JoueurEntity;
 
 @Configuration
 public class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdapter {
 
 	@Autowired
-	private JoueurDAO joueurDAO;
+	private JoueurRepository joueurDAO;
 
 	@Override
 	public void init(AuthenticationManagerBuilder auth) throws Exception {

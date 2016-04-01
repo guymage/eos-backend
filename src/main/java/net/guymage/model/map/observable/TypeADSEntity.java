@@ -1,4 +1,4 @@
-package net.guymage.model.map;
+package net.guymage.model.map.observable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

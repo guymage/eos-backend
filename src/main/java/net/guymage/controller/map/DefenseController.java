@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.guymage.dao.map.DefenseDAO;
-import net.guymage.model.map.DefenseEntity;
+import net.guymage.model.map.observable.DefenseEntity;
 
 @RestController
 @RequestMapping("/defense")

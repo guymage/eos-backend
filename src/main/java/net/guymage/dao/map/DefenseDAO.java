@@ -2,7 +2,7 @@ package net.guymage.dao.map;
 
 import org.springframework.data.repository.CrudRepository;
 
-import net.guymage.model.map.DefenseEntity;
+import net.guymage.model.map.observable.DefenseEntity;
 
 public interface DefenseDAO extends CrudRepository<DefenseEntity, Long> {
 

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.guymage.dao.map.BatimentDAO;
-import net.guymage.model.map.BatimentEntity;
+import net.guymage.model.map.observable.BatimentEntity;
 
 @RestController
 @RequestMapping("/batiment")

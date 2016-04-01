@@ -1,33 +1,27 @@
-package net.guymage.model.map;
-
-import java.util.Date;
+package net.guymage.model.map.observable;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import net.guymage.model.ImageEntity;
 import net.guymage.model.race.RaceEntity;
 
 /**
- * Entité représentant un chantier
+ * Entité représentant une ADS
  *
  * @author Guymage
  */
 @Entity
-// TODO renommer la table en chantier
-@Table(name = "flag")
-public class ChantierEntity {
+@Table(name = "armesiege")
+public class ArmeSiegeEntity {
 
 	@Id
 	private Long id;
 
-	// TODO disponible ?
-	//private int hp;
+	private int hp;
 
 	@OneToOne(cascade = CascadeType.ALL, optional=false)
 	@JoinColumn(name = "idrace")
@@ -37,24 +31,21 @@ public class ChantierEntity {
 	@JoinColumn(name = "idimage")
 	private ImageEntity image;
 
-	// TODO Migrer les données
-	//	@Enumerated(EnumType.STRING)
-	//	private CodeTypeChantier typeChantier;
-
-	@Column(name="datefin")
-	private Date dateFin;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idtype")
+	private TypeADSEntity typeADS;
 
 	/*
 	 * Getters & setters
 	 */
 
-	//	public int getHp() {
-	//		return hp;
-	//	}
-	//
-	//	public void setHp(final int hp) {
-	//		this.hp = hp;
-	//	}
+	public int getHp() {
+		return hp;
+	}
+
+	public void setHp(final int hp) {
+		this.hp = hp;
+	}
 
 	public Long getId() {
 		return id;
@@ -80,12 +71,12 @@ public class ChantierEntity {
 		this.image = image;
 	}
 
-	public Date getDateFin() {
-		return dateFin;
+	public TypeADSEntity getTypeADS() {
+		return typeADS;
 	}
 
-	public void setDateFin(Date dateFin) {
-		this.dateFin = dateFin;
+	public void setTypeADS(TypeADSEntity typeADS) {
+		this.typeADS = typeADS;
 	}
 
 }

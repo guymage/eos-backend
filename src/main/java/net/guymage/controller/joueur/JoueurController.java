@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.guymage.dao.joueur.JoueurDAO;
+import net.guymage.dao.joueur.JoueurRepository;
 import net.guymage.model.joueur.JoueurEntity;
 
 @RestController
@@ -14,16 +14,16 @@ import net.guymage.model.joueur.JoueurEntity;
 public class JoueurController {
 
 	@Autowired
-	private JoueurDAO joueurDAO;
+	private JoueurRepository joueurRepository;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public Iterable<JoueurEntity> findAll() {
-		return joueurDAO.findAll();
+		return joueurRepository.findAll();
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "{nom}")
 	public JoueurEntity findByNom(@PathVariable String nom) {
-		return joueurDAO.findByNom(nom);
+		return joueurRepository.findByNom(nom);
 	}
 
 }

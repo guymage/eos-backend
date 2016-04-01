@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 import net.guymage.model.race.RaceEntity;
 
 @Transactional
-public interface RaceDAO extends CrudRepository<RaceEntity, Long> {
+public interface RaceRepository extends CrudRepository<RaceEntity, Long> {
 
 }

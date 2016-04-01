@@ -1,4 +1,4 @@
-package net.guymage.controller.map;
+package net.guymage.controller.map.perso;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -6,24 +6,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.guymage.dao.map.ChantierDAO;
-import net.guymage.model.map.observable.ChantierEntity;
+import net.guymage.dao.map.perso.PersonnageDAO;
+import net.guymage.model.map.observable.perso.PersonnageEntity;
 
 @RestController
-@RequestMapping("/chantier")
-public class ChantierController {
+@RequestMapping("/pers")
+public class PerosnnageController {
 
 	@Autowired
-	private ChantierDAO chantierDAO;
+	private PersonnageDAO personnageDAO;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public Iterable<ChantierEntity> findAll() {
-		return chantierDAO.findAll();
+	public Iterable<PersonnageEntity> findAll() {
+		return personnageDAO.findAll();
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "{id}")
-	public ChantierEntity findById(@PathVariable Long id) {
-		return chantierDAO.findById(id);
+	public PersonnageEntity findById(@PathVariable Long id) {
+		return personnageDAO.findById(id);
 	}
 
 }
