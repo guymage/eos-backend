@@ -1,7 +1,5 @@
 package net.guymage.dao.map;
 
-import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
 
 import net.guymage.model.map.ObservationEntity;
@@ -25,6 +23,6 @@ public interface ObservationRepository extends CrudRepository<ObservationEntity,
 	 * @param yMax
 	 * @return
 	 */
-	List<ObservationEntity> findByCoordonnees(int xMin, int xMax, int yMin, int yMax);
+	//List<ObservationEntity> findByCoordonnees(int xMin, int xMax, int yMin, int yMax);
 
 }

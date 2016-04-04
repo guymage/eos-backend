@@ -10,7 +10,7 @@ COLLATE utf8_bin;
 -- Creation du user
 CREATE USER 'joueur'@'localhost' IDENTIFIED BY 'joueur';
 GRANT USAGE ON * . * TO 'joueur'@'localhost' IDENTIFIED BY 'joueur' ;
-GRANT DELETE, SELECT, INSERT, UPDATE, EXECUTE ON eos.* TO 'joueur'@'localhost' ;  
+GRANT DROP, DELETE, SELECT, INSERT, UPDATE, EXECUTE ON eos.* TO 'joueur'@'localhost' ;  
 
 
 -- ne pas oublier:
