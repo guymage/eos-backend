@@ -1,4 +1,4 @@
-package net.guymage.dao.joueur;
+package net.guymage.repository.joueur;
 
 import org.springframework.data.repository.CrudRepository;
 

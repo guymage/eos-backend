@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -34,20 +36,23 @@ import net.guymage.model.race.RaceEntity;
 public class ObservationEntity {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	@Column(name = "idroyaume")
 	private Long idRoyaume;
+	public static final String PROPERTYNAME_IDROYAUME = "idRoyaume";
 
-	@OneToOne(cascade = CascadeType.ALL, optional=false)
+	@OneToOne(optional=false)
 	@JoinColumn(name = "idcase")
 	private CaseEntity laCase;
+	public static final String PROPERTYNAME_CASE = "laCase";
 
-	@OneToOne(cascade = CascadeType.ALL, optional=false)
+	@OneToOne(optional=false)
 	@JoinColumn(name = "idtexture")
 	private TextureEntity texture;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "idrace")
 	private RaceEntity race;
 
@@ -77,7 +82,7 @@ public class ObservationEntity {
 	inverseJoinColumns={@JoinColumn(name="idpersonnage", referencedColumnName="id")})
 	private List<PersonnageEntity> personnages;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "idobservateur")
 	private JoueurEntity observateur;
 

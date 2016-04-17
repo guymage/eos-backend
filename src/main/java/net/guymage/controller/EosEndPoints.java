@@ -8,7 +8,7 @@ package net.guymage.controller;
  */
 public class EosEndPoints {
 
-	public static final String RACE = "race";
+	public static final String RACE = "/race";
 
 
 	private EosEndPoints() throws IllegalAccessException {

@@ -53,6 +53,11 @@
   			<artifactId>eos-api</artifactId>
   			<version>${eos.api.version}</version>
 		</dependency>
+		<dependency>
+			<artifactId>commons-lang3</artifactId>
+			<groupId>org.apache.commons</groupId>
+			<version>3.4</version>
+		</dependency>
 	</dependencies>
 	
 	<build>

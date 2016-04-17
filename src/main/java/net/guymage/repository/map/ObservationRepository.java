@@ -1,10 +1,11 @@
-package net.guymage.dao.map;
+package net.guymage.repository.map;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import net.guymage.model.map.ObservationEntity;
 
-public interface ObservationRepository extends CrudRepository<ObservationEntity, Long> {
+public interface ObservationRepository extends JpaRepository<ObservationEntity, Long>, JpaSpecificationExecutor<ObservationEntity> {
 
 	/**
 	 * Recherche une observation à partir de son id

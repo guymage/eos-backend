@@ -22,9 +22,11 @@ public class CaseEntity {
 	@Id
 	private Long id;
 
-	private int x;
+	private Integer x;
+	public static final String PROPERTYNAME_X = "x";
 
-	private int y;
+	private Integer y;
+	public static final String PROPERTYNAME_Y = "y";
 
 	@Column(name="dateconquete")
 	private Date dateConquete;
@@ -51,22 +53,22 @@ public class CaseEntity {
 	/**
 	 * @return La position X de la case
 	 */
-	public int getX() {
+	public Integer getX() {
 		return x;
 	}
 
-	public void setX(final int x) {
+	public void setX(final Integer x) {
 		this.x = x;
 	}
 
 	/**
 	 * @return La position Y de la case
 	 */
-	public int getY() {
+	public Integer getY() {
 		return y;
 	}
 
-	public void setY(final int y) {
+	public void setY(final Integer y) {
 		this.y = y;
 	}
 

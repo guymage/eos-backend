@@ -1,12 +1,12 @@
 package net.guymage.model.race;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import model.race.Race;
 
 /**
  * Entité représentant une race
@@ -16,9 +16,7 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Table(name = "race")
-public class RaceEntity implements Serializable {
-
-	private static final long serialVersionUID = 5506742658398813083L;
+public class RaceEntity {
 
 	@Id
 	private Long id;
@@ -41,6 +39,22 @@ public class RaceEntity implements Serializable {
 
 	@NotNull
 	private Integer colorB;
+
+	/**
+	 * @return Conversion en {@link Race}
+	 */
+	public Race toRace(){
+		return Race.race()
+				.withId(id)
+				.withNom(nom)
+				.withDescription(description)
+				.withCapitaleX(capitaleX)
+				.withCapitaleY(capitaleY)
+				.withColorR(colorR)
+				.withColorG(colorG)
+				.withColorB(colorB)
+				.build();
+	}
 
 	/*
 	 * Getters & setters

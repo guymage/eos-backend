@@ -1,10 +1,10 @@
-package net.guymage.dao.map;
+package net.guymage.repository.map.observable;
 
 import org.springframework.data.repository.CrudRepository;
 
 import net.guymage.model.map.observable.DefenseEntity;
 
-public interface DefenseDAO extends CrudRepository<DefenseEntity, Long> {
+public interface DefenseRepository extends CrudRepository<DefenseEntity, Long> {
 
 	DefenseEntity findById(Long id);
 

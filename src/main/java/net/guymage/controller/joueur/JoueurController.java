@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.guymage.dao.joueur.JoueurRepository;
 import net.guymage.model.joueur.JoueurEntity;
+import net.guymage.repository.joueur.JoueurRepository;
 
 @RestController
 @RequestMapping("/joueur")

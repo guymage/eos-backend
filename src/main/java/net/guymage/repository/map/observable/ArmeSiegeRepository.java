@@ -1,10 +1,10 @@
-package net.guymage.dao.map;
+package net.guymage.repository.map.observable;
 
 import org.springframework.data.repository.CrudRepository;
 
 import net.guymage.model.map.observable.ArmeSiegeEntity;
 
-public interface ArmeSiegeDAO extends CrudRepository<ArmeSiegeEntity, Long> {
+public interface ArmeSiegeRepository extends CrudRepository<ArmeSiegeEntity, Long> {
 
 	ArmeSiegeEntity findById(Long id);
 

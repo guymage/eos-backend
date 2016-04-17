@@ -16,8 +16,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import model.joueur.CodeHabilitation;
-import net.guymage.dao.joueur.JoueurRepository;
 import net.guymage.model.joueur.JoueurEntity;
+import net.guymage.repository.joueur.JoueurRepository;
 
 @Configuration
 public class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdapter {

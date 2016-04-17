@@ -1,10 +1,10 @@
-package net.guymage.dao.map.perso;
+package net.guymage.repository.map.observable;
 
 import org.springframework.data.repository.CrudRepository;
 
 import net.guymage.model.map.observable.perso.PersonnageEntity;
 
-public interface PersonnageDAO extends CrudRepository<PersonnageEntity, Long> {
+public interface PersonnageRepository extends CrudRepository<PersonnageEntity, Long> {
 
 	PersonnageEntity findById(Long id);
 
