@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter;
 import org.springframework.security.core.GrantedAuthority;
@@ -27,7 +28,9 @@ public class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdap
 
 	@Override
 	public void init(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService());
+		auth
+		.userDetailsService(userDetailsService())
+		.passwordEncoder(passwordEncoder());
 	}
 
 	@Bean
@@ -37,8 +40,6 @@ public class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdap
 			@Override
 			public UserDetails loadUserByUsername(String nom) throws UsernameNotFoundException {
 				JoueurEntity joueur = joueurDAO.findByNom(nom);
-
-				// TODO cryptage du password en MD5
 
 				if (joueur != null) {
 					// Ajout des habilitations
@@ -56,6 +57,15 @@ public class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdap
 				}
 			}
 		};
+	};
+
+	/**
+	 * @return Méthode d'encryption du password
+	 */
+	@Bean
+	Md5PasswordEncoder passwordEncoder(){
+		Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+		return encoder;
 	};
 
 }

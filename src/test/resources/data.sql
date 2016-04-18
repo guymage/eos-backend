@@ -22,7 +22,7 @@ insert into race (id, nom, descr, capitaleX, capitaleY, colorR, colorG, colorB) 
 
 -- Joueur utilisé pour l'authentification
 INSERT INTO joueur(id, nom, passwd, idRace, isActive)
-values(1, 'Test', 'password', 1, 1);
+values(1, 'Test', MD5('password'), 1, 1);
 
 -- Texture
 INSERT INTO texture (id, css, path) VALUES
