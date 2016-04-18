@@ -11,7 +11,7 @@ import net.guymage.repository.map.observable.PersonnageRepository;
 
 @RestController
 @RequestMapping("/pers")
-public class PerosnnageController {
+public class PersonnageController {
 
 	@Autowired
 	private PersonnageRepository personnageDAO;

@@ -209,18 +209,18 @@ CREATE TABLE `infoEntity` (
 ) COMMENT='Informations sur une entité observée';
 
 -- ---
--- Table 't_classeJoueur'
--- Liste des classes d''un joueur durant ses observations
+-- Table 't_classePersonnage'
+-- Liste des classes d''un personnage durant ses observations
 -- ---
 
-DROP TABLE IF EXISTS `t_classeJoueur`;
+DROP TABLE IF EXISTS `t_classePersonnage`;
 		
-CREATE TABLE `t_classeJoueur` (
+CREATE TABLE `t_classePersonnage` (
   `idPersonnage` INTEGER NOT NULL,
   `idClasse` INTEGER NOT NULL,
   `dateObservation` DATETIME NOT NULL,
   PRIMARY KEY (`idPersonnage`, `idClasse`)
-) COMMENT='Liste des classes d''un joueur durant ses observations';
+) COMMENT='Liste des classes d''un personnage durant ses observations';
 
 -- ---
 -- Table 'infoCase'
@@ -485,8 +485,8 @@ ALTER TABLE `favoris` ADD FOREIGN KEY (idJoueur) REFERENCES `joueur` (`id`);
 ALTER TABLE `favoris` ADD FOREIGN KEY (idCase) REFERENCES `t_case` (`id`);
 ALTER TABLE `infoEntity` ADD FOREIGN KEY (idRoyaume) REFERENCES `race` (`id`);
 ALTER TABLE `infoEntity` ADD FOREIGN KEY (updatedBy) REFERENCES `joueur` (`id`);
-ALTER TABLE `t_classeJoueur` ADD FOREIGN KEY (idPersonnage) REFERENCES `t_personnage` (`id`);
-ALTER TABLE `t_classeJoueur` ADD FOREIGN KEY (idClasse) REFERENCES `classe` (`id`);
+ALTER TABLE `t_classePersonnage` ADD FOREIGN KEY (idPersonnage) REFERENCES `t_personnage` (`id`);
+ALTER TABLE `t_classePersonnage` ADD FOREIGN KEY (idClasse) REFERENCES `classe` (`id`);
 ALTER TABLE `infoCase` ADD FOREIGN KEY (idCase) REFERENCES `t_case` (`id`);
 ALTER TABLE `infoCase` ADD FOREIGN KEY (idRoyaume) REFERENCES `race` (`id`);
 ALTER TABLE `infoCase` ADD FOREIGN KEY (updatedBy) REFERENCES `joueur` (`id`);
@@ -528,7 +528,7 @@ ALTER TABLE `pointeur` ADD FOREIGN KEY (idRoyaume) REFERENCES `race` (`id`);
 -- ALTER TABLE `flag` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `favoris` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `infoEntity` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `t_classeJoueur` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `t_classePersonnage` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `infoCase` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `log` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `t_personnage` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -573,7 +573,7 @@ ALTER TABLE `pointeur` ADD FOREIGN KEY (idRoyaume) REFERENCES `race` (`id`);
 -- ('','','','');
 -- INSERT INTO `infoEntity` (`idEntite`,`idRoyaume`,`typeEntite`,`updatedBy`,`updated`,`comment`,`isRezor`,`isArchi`,`isTarget`) VALUES
 -- ('','','','','','','','','');
--- INSERT INTO `t_classeJoueur` (`idPersonnage`,`idClasse`,`dateObservation`) VALUES
+-- INSERT INTO `t_classePersonnage` (`idPersonnage`,`idClasse`,`dateObservation`) VALUES
 -- ('','','');
 -- INSERT INTO `infoCase` (`idCase`,`idRoyaume`,`updatedBy`,`updated`,`comment`) VALUES
 -- ('','','','','');

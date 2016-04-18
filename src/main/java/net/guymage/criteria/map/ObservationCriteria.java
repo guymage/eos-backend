@@ -3,6 +3,7 @@ package net.guymage.criteria.map;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
@@ -37,33 +38,34 @@ public class ObservationCriteria implements Specification<ObservationEntity>{
 
 		Predicate pred = cb.and(prIdRoyaume);
 
+		Join<ObservationEntity, CaseEntity> joinCase = root.join(ObservationEntity.PROPERTYNAME_CASE);
 		// xMin
 		if(xMin != null){
-			Join<ObservationEntity, CaseEntity> joinCase = root.join(ObservationEntity.PROPERTYNAME_CASE);
-			Predicate prXMin = cb.lessThanOrEqualTo(joinCase.<String>get(CaseEntity.PROPERTYNAME_X), xMin.toString());
+			Predicate prXMin = cb.greaterThanOrEqualTo(joinCase.<String>get(CaseEntity.PROPERTYNAME_X), xMin.toString());
 			pred = cb.and(pred, prXMin);
 		}
 
 		// xMax
 		if(xMax != null){
-			Join<ObservationEntity, CaseEntity> joinCase = root.join(ObservationEntity.PROPERTYNAME_CASE);
 			Predicate prXMin = cb.lessThanOrEqualTo(joinCase.<String>get(CaseEntity.PROPERTYNAME_X), xMax.toString());
 			pred = cb.and(pred, prXMin);
 		}
 
 		// yMin
 		if(yMin != null){
-			Join<ObservationEntity, CaseEntity> joinCase = root.join(ObservationEntity.PROPERTYNAME_CASE);
-			Predicate prXMin = cb.lessThanOrEqualTo(joinCase.<String>get(CaseEntity.PROPERTYNAME_Y), yMin.toString());
+			Predicate prXMin = cb.greaterThanOrEqualTo(joinCase.<String>get(CaseEntity.PROPERTYNAME_Y), yMin.toString());
 			pred = cb.and(pred, prXMin);
 		}
 
 		// yMax
 		if(yMax != null){
-			Join<ObservationEntity, CaseEntity> joinCase = root.join(ObservationEntity.PROPERTYNAME_CASE);
 			Predicate prXMin = cb.lessThanOrEqualTo(joinCase.<String>get(CaseEntity.PROPERTYNAME_Y), yMax.toString());
 			pred = cb.and(pred, prXMin);
 		}
+
+		// Optimisation de la requête afin d'obtenir des inner join plutôt que des requêtes N+1
+		root.fetch(ObservationEntity.PROPERTYNAME_TEXTURE, JoinType.INNER);
+		root.fetch(ObservationEntity.PROPERTYNAME_CASE, JoinType.INNER);
 
 		return pred;
 

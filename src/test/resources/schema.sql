@@ -4,7 +4,7 @@
 -- ---
 
 -- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
- SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=0;
 
 -- ---
 -- Table 'joueur'
@@ -209,18 +209,18 @@ CREATE TABLE `infoEntity` (
 ) COMMENT='Informations sur une entité observée';
 
 -- ---
--- Table 't_classeJoueur'
--- Liste des classes d''un joueur durant ses observations
+-- Table 't_classePersonnage'
+-- Liste des classes d''un personnage durant ses observations
 -- ---
 
-DROP TABLE IF EXISTS `t_classeJoueur`;
+DROP TABLE IF EXISTS `t_classePersonnage`;
 		
-CREATE TABLE `t_classeJoueur` (
+CREATE TABLE `t_classePersonnage` (
   `idPersonnage` INTEGER NOT NULL,
   `idClasse` INTEGER NOT NULL,
   `dateObservation` DATETIME NOT NULL,
   PRIMARY KEY (`idPersonnage`, `idClasse`)
-) COMMENT='Liste des classes d''un joueur durant ses observations';
+) COMMENT='Liste des classes d''un personnage durant ses observations';
 
 -- ---
 -- Table 'infoCase'
@@ -485,8 +485,8 @@ ALTER TABLE `favoris` ADD FOREIGN KEY (idJoueur) REFERENCES `joueur` (`id`);
 ALTER TABLE `favoris` ADD FOREIGN KEY (idCase) REFERENCES `t_case` (`id`);
 ALTER TABLE `infoEntity` ADD FOREIGN KEY (idRoyaume) REFERENCES `race` (`id`);
 ALTER TABLE `infoEntity` ADD FOREIGN KEY (updatedBy) REFERENCES `joueur` (`id`);
-ALTER TABLE `t_classeJoueur` ADD FOREIGN KEY (idPersonnage) REFERENCES `t_personnage` (`id`);
-ALTER TABLE `t_classeJoueur` ADD FOREIGN KEY (idClasse) REFERENCES `classe` (`id`);
+ALTER TABLE `t_classePersonnage` ADD FOREIGN KEY (idPersonnage) REFERENCES `t_personnage` (`id`);
+ALTER TABLE `t_classePersonnage` ADD FOREIGN KEY (idClasse) REFERENCES `classe` (`id`);
 ALTER TABLE `infoCase` ADD FOREIGN KEY (idCase) REFERENCES `t_case` (`id`);
 ALTER TABLE `infoCase` ADD FOREIGN KEY (idRoyaume) REFERENCES `race` (`id`);
 ALTER TABLE `infoCase` ADD FOREIGN KEY (updatedBy) REFERENCES `joueur` (`id`);
@@ -528,7 +528,7 @@ ALTER TABLE `pointeur` ADD FOREIGN KEY (idRoyaume) REFERENCES `race` (`id`);
 -- ALTER TABLE `flag` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `favoris` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `infoEntity` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `t_classeJoueur` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `t_classePersonnage` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `infoCase` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `log` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `t_personnage` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -545,63 +545,3 @@ ALTER TABLE `pointeur` ADD FOREIGN KEY (idRoyaume) REFERENCES `race` (`id`);
 -- ALTER TABLE `natureTerrain` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `pointeur` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- ---
--- Test Data
--- ---
-
--- INSERT INTO `joueur` (`id`,`nom`,`passwd`,`idRace`,`isActive`,`lastConnection`,`mail`,`invisible`,`invisibleValidite`) VALUES
--- ('','','','','','','','','');
--- INSERT INTO `batiment` (`id`,`idRace`,`idImage`,`hp`) VALUES
--- ('','','','');
--- INSERT INTO `observation` (`id`,`idRoyaume`,`idObservateur`,`dateObservation`,`idCase`,`idTexture`,`idRace`,`idTypeTerrain`,`idBatiment`,`idFlag`,`idPnj`,`idArmeSiege`,`idDefense`,`obsolete`) VALUES
--- ('','','','','','','','','','','','','','');
--- INSERT INTO `texture` (`id`,`css`,`path`) VALUES
--- ('','','');
--- INSERT INTO `t_case` (`id`,`x`,`y`,`lastIdRace`,`dateConquete`,`idNature`) VALUES
--- ('','','','','','');
--- INSERT INTO `joueurObs` (`idPersonnage`,`idObservation`) VALUES
--- ('','');
--- INSERT INTO `race` (`id`,`nom`,`descr`,`capitaleX`,`capitaleY`,`colorR`,`colorG`,`colorB`) VALUES
--- ('','','','','','','','');
--- INSERT INTO `classe` (`id`,`nom`,`path`) VALUES
--- ('','','');
--- INSERT INTO `pnj` (`id`,`nom`,`image`) VALUES
--- ('','','');
--- INSERT INTO `flag` (`id`,`idRace`,`idImage`,`dateFin`,`type`) VALUES
--- ('','','','','');
--- INSERT INTO `favoris` (`id`,`idJoueur`,`idCase`,`nom`) VALUES
--- ('','','','');
--- INSERT INTO `infoEntity` (`idEntite`,`idRoyaume`,`typeEntite`,`updatedBy`,`updated`,`comment`,`isRezor`,`isArchi`,`isTarget`) VALUES
--- ('','','','','','','','','');
--- INSERT INTO `t_classeJoueur` (`idPersonnage`,`idClasse`,`dateObservation`) VALUES
--- ('','','');
--- INSERT INTO `infoCase` (`idCase`,`idRoyaume`,`updatedBy`,`updated`,`comment`) VALUES
--- ('','','','','');
--- INSERT INTO `log` (`id`,`idRoyaume`,`date`,`name`,`details`,`resume`,`niveau`) VALUES
--- ('','','','','','','');
--- INSERT INTO `t_personnage` (`id`,`idJoueur`,`idRoyaume`,`updated`,`updatedBy`,`level`,`melee`,`distance`,`esquive`,`blocage`,`incantation`,`magieVie`,`magieElem`,`magieMort`,`isCache`,`dead`,`dateDeath`) VALUES
--- ('','','','','','','','','','','','','','','','','');
--- INSERT INTO `armeSiege` (`id`,`idType`,`idRace`,`idImage`,`hp`,`nextShoot`,`shootBy`) VALUES
--- ('','','','','','','');
--- INSERT INTO `logCoord` (`idLog`,`idCase`) VALUES
--- ('','');
--- INSERT INTO `defense` (`id`,`idRace`,`idImage`,`hp`) VALUES
--- ('','','','');
--- INSERT INTO `image` (`id`,`nom`,`path`) VALUES
--- ('','','');
--- INSERT INTO `imageDisplay` (`idRoyaume`,`nom`,`date`,`description`,`finValidite`,`idJoueur`,`shared`) VALUES
--- ('','','','','','','');
--- INSERT INTO `typeArmeSiege` (`id`,`nom`,`tpsRecharge`) VALUES
--- ('','','');
--- INSERT INTO `statistique` (`mesure`,`hits`) VALUES
--- ('','');
--- INSERT INTO `notification` (`idJoueur`,`type`,`notified`) VALUES
--- ('','','');
--- INSERT INTO `habilitation` (`idJoueur`,`habilitation`) VALUES
--- ('','');
--- INSERT INTO `surveillance` (`idObservation`,`idBatiment`) VALUES
--- ('','');
--- INSERT INTO `natureTerrain` (`id`,`nom`,`descr`) VALUES
--- ('','','');
--- INSERT INTO `pointeur` (`id`,`idCaseSrc`,`idCaseDest`,`idRoyaume`,`commentaire`) VALUES
--- ('','','','','');

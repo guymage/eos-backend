@@ -3,7 +3,6 @@ package net.guymage.model.map.observable.perso;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -34,7 +33,7 @@ public class PersonnageEntity  {
 	@Column(name="idroyaume")
 	private Long idRoyaume;
 
-	@OneToOne(cascade = CascadeType.ALL, optional=false)
+	@OneToOne(optional=false)
 	@JoinColumn(name = "idjoueur")
 	private JoueurEntity joueur;
 
@@ -74,6 +73,11 @@ public class PersonnageEntity  {
 	@Column(name="datedeath")
 	private Date dateDeath;
 
+	private Date updated;
+
+	@OneToOne( optional=false)
+	@JoinColumn(name="updatedby")
+	private JoueurEntity updatedBy;
 
 	/*
 	 * Getters & setters
@@ -89,7 +93,6 @@ public class PersonnageEntity  {
 	public void setDead(final boolean dead) {
 		this.dead = dead;
 	}
-
 
 	/**
 	 * @return (facultatif) le niveau du joueur
@@ -230,5 +233,19 @@ public class PersonnageEntity  {
 		this.dateDeath = dateDeath;
 	}
 
+	public Date getUpdated() {
+		return updated;
+	}
 
+	public void setUpdated(Date updated) {
+		this.updated = updated;
+	}
+
+	public JoueurEntity getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(JoueurEntity updatedBy) {
+		this.updatedBy = updatedBy;
+	}
 }

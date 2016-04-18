@@ -1,5 +1,7 @@
 package net.guymage.model.race;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,7 +18,9 @@ import model.race.Race;
  */
 @Entity
 @Table(name = "race")
-public class RaceEntity {
+public class RaceEntity implements Serializable{
+
+	private static final long serialVersionUID = -3742479639881958417L;
 
 	@Id
 	private Long id;

@@ -334,7 +334,7 @@
 </key>
 <comment>Informations sur une entité observée</comment>
 </table>
-<table x="253" y="14" name="t_classeJoueur">
+<table x="253" y="14" name="t_classePersonnage">
 <row name="idPersonnage" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <relation table="t_personnage" row="id" />
@@ -350,7 +350,7 @@
 <part>idPersonnage</part>
 <part>idClasse</part>
 </key>
-<comment>Liste des classes d'un joueur durant ses observations</comment>
+<comment>Liste des classes d'un personnage durant ses observations</comment>
 </table>
 <table x="1501" y="316" name="infoCase">
 <row name="idCase" null="0" autoincrement="0">

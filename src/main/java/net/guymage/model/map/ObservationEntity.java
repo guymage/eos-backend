@@ -51,6 +51,7 @@ public class ObservationEntity {
 	@OneToOne(optional=false)
 	@JoinColumn(name = "idtexture")
 	private TextureEntity texture;
+	public static final String PROPERTYNAME_TEXTURE = "texture";
 
 	@OneToOne
 	@JoinColumn(name = "idrace")
@@ -78,8 +79,8 @@ public class ObservationEntity {
 
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinTable(name="joueurobs",
-	joinColumns={@JoinColumn(name="idobservation", referencedColumnName="id")},
-	inverseJoinColumns={@JoinColumn(name="idpersonnage", referencedColumnName="id")})
+	joinColumns=@JoinColumn(name="idobservation"),
+	inverseJoinColumns=@JoinColumn(name="idpersonnage"))
 	private List<PersonnageEntity> personnages;
 
 	@OneToOne

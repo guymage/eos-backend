@@ -1,4 +1,4 @@
-package net.guymage.repository.map;
+package net.guymage.repository.map.terrain;
 
 import org.springframework.data.repository.CrudRepository;
 

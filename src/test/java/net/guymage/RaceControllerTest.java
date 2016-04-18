@@ -14,7 +14,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.RestTemplate;
 
 import model.race.Race;
-import net.guymage.model.race.RaceEntity;
 import net.guymage.repository.race.RaceRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -31,21 +30,8 @@ public class RaceControllerTest {
 
 	private final RestTemplate restTemplate = new TestRestTemplate("Test", "password");
 
-	private RaceEntity raceEdb;
-
 	@Before
 	public void setUp() {
-		raceEdb = new RaceEntity();
-		raceEdb.setNom("edb");
-		raceEdb.setDescription("Elfe des bois");
-		raceEdb.setId(2L);
-		raceEdb.setColorR(1);
-		raceEdb.setColorG(3);
-		raceEdb.setColorB(5);
-		raceEdb.setCapitaleX(23);
-		raceEdb.setCapitaleY(45);
-
-		raceRepository.save(raceEdb);
 	}
 
 	@Test
@@ -55,17 +41,17 @@ public class RaceControllerTest {
 
 		Assert.assertNotNull(responseEntity);
 		Assert.assertNotNull(responseEntity.getBody());
-		Assert.assertEquals(3, responseEntity.getBody().length);
+		Assert.assertEquals(12, responseEntity.getBody().length);
 	}
 
 	@Test
 	public void testFindOne() {
 
-		ResponseEntity<Race> responseEntity = restTemplate.getForEntity("http://localhost:" + port + "/race/"+raceEdb.getNom(), Race.class);
+		ResponseEntity<Race> responseEntity = restTemplate.getForEntity("http://localhost:" + port + "/race/troll", Race.class);
 
 		Assert.assertNotNull(responseEntity);
 		Assert.assertNotNull(responseEntity.getBody());
-		Assert.assertEquals(raceEdb.getId(), responseEntity.getBody().getId());
+		Assert.assertEquals("Troll", responseEntity.getBody().getDescription());
 	}
 
 }

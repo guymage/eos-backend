@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -16,7 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -44,8 +43,8 @@ public class JoueurEntity implements Serializable {
 	@Column(name = "passwd")
 	private String password;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idrace")
+	@ManyToOne(optional=false, fetch=FetchType.EAGER)
+	@JoinColumn(name = "idrace", nullable=false)
 	private RaceEntity race;
 
 	@Column(name = "isactive")

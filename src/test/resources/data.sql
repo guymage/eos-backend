@@ -6,9 +6,19 @@ DELETE FROM natureterrain;
 DELETE FROM RACE;
 
 -- Race
-INSERT INTO race(id, nom, descr) values
-(0,'Inconnu', 'Neutre'),
-(1, 'Scav', 'Scavenger');
+insert into race (id, nom, descr, colorR, colorG, colorB)	VALUES(0,'Inconnu', 'Neutre', 170, 170, 170);
+insert into race (id, nom, descr, colorR, colorG, colorB)	VALUES(1, 'barbare', 'Barbare', 0, 104, 255);
+insert into race (id, nom, descr, capitaleX, capitaleY, colorR, colorG, colorB) VALUES(2, 'elfebois', 'Elfe des bois', 44, 90, 0, 153, 0);
+insert into race (id, nom, descr, capitaleX, capitaleY, colorR, colorG, colorB) VALUES(3, 'troll', 'Troll', NULL, NULL, 255, 0, 0);
+insert into race (id, nom, descr, capitaleX, capitaleY, colorR, colorG, colorB)	VALUES(4, 'scavenger', 'Scavenger', NULL, NULL, 255, 255, 0);
+insert into race (id, nom, descr, capitaleX, capitaleY, colorR, colorG, colorB)	VALUES(6, 'orc', 'Orc', NULL, NULL, 255, 204, 204);
+insert into race (id, nom, descr, capitaleX, capitaleY, colorR, colorG, colorB)	VALUES(7, 'nain', 'Nain', NULL, NULL, 255, 165, 0);
+insert into race (id, nom, descr, capitaleX, capitaleY, colorR, colorG, colorB) VALUES(8, 'mortvivant', 'Mort-Vivant', NULL, NULL, 92, 30, 0);
+insert into race (id, nom, descr, capitaleX, capitaleY, colorR, colorG, colorB) VALUES(9, 'humainnoir', 'Corrompu', NULL, NULL, 0, 0, 0);
+insert into race (id, nom, descr, capitaleX, capitaleY, colorR, colorG, colorB)	VALUES(10, 'humain', 'Humain', NULL, NULL, 0, 0, 255);
+insert into race (id, nom, descr, capitaleX, capitaleY, colorR, colorG, colorB)	VALUES(11, 'elfehaut', 'Haut-Elfe', NULL, NULL, 255, 255, 255);
+insert into race (id, nom, descr, capitaleX, capitaleY, colorR, colorG, colorB) VALUES(12, 'vampire', 'Vampire', NULL, NULL, 204,204,204);
+
 
 -- Joueur utilisé pour l'authentification
 INSERT INTO joueur(id, nom, passwd, idRace, isActive)
