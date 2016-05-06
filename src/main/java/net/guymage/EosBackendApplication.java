@@ -14,15 +14,15 @@ public class EosBackendApplication {
 		SpringApplication.run(EosBackendApplication.class, args);
 	}
 
-
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurerAdapter() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/race");
-				registry.addMapping("/race/*").allowedMethods("GET", "HEAD", "POST", "OPTIONS", "DELETE").allowCredentials(true);
+				registry.addMapping("/race/*");
 			}
 		};
 	}
+
 }
