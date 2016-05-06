@@ -1,4 +1,4 @@
-package net.guymage;
+package net.guymage.conf;
 
 import java.io.IOException;
 
