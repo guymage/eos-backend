@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import model.race.Race;
+import net.guymage.api.model.race.Race;
 
 /**
  * Entité représentant une race

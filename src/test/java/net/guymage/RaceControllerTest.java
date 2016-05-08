@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.RestTemplate;
 
-import model.race.Race;
+import net.guymage.api.model.race.Race;
 import net.guymage.repository.race.RaceRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)

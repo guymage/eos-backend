@@ -5,7 +5,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-import exception.EosException;
+import net.guymage.api.exception.EosException;
 import net.guymage.model.joueur.JoueurEntity;
 import net.guymage.repository.joueur.JoueurRepository;
 

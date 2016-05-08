@@ -20,7 +20,6 @@ public class EosBackendApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/race");
-				registry.addMapping("/race/*");
 			}
 		};
 	}

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import model.race.Race;
+import net.guymage.api.model.race.Race;
 import net.guymage.controller.EosEndPoints;
 import net.guymage.model.race.RaceEntity;
 import net.guymage.repository.race.RaceRepository;

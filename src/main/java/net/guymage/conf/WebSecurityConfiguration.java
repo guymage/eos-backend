@@ -16,7 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import model.joueur.CodeHabilitation;
+import net.guymage.api.model.joueur.CodeHabilitation;
 import net.guymage.model.joueur.JoueurEntity;
 import net.guymage.repository.joueur.JoueurRepository;
 

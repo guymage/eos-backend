@@ -19,7 +19,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import model.joueur.CodeHabilitation;
+import net.guymage.api.model.joueur.CodeHabilitation;
 import net.guymage.model.race.RaceEntity;
 
 /**

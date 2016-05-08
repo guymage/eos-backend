@@ -15,14 +15,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
 
-@EnableWebSecurity
 @Configuration
+@EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().anyRequest().fullyAuthenticated();
-		http.csrf().disable();
+		http.authorizeRequests().anyRequest().authenticated();
 		http.httpBasic();
 		// Prise en compte des requêtes OPTIONS
 		http.exceptionHandling().authenticationEntryPoint(new BasicAuthenticationEntryPoint() {
